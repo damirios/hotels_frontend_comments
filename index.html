@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../style/css/style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My comments</title>
+</head>
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <div class="container">
+                <div class="header__row">
+                    <a href="#">Мои комментарии</a>
+                </div>
+            </div>
+        </header>
+        <main class="content">
+            <div class="container">
+                <div class="content__row">
+                    <div class="new-comment">
+                        <h1 class="new-comment__title">Добавить новый комментарий</h1>
+                        <form class="new-comment__form" name="newComment">
+                            <div class="new-comment__group new-comment__name">
+                                <label for="name" class="new-comment__label">Имя</label>
+                                <input type="text" class="new-comment__input" placeholder="Имя (min: 4, max: 32)" 
+                                id="name" name="newComment_name" required tabindex="1">
+                            </div>
+                            <div class="new-comment__group new-comment__text">
+                                <label for="text" class="new-comment__label">Текст комментария</label>
+                                <textarea name="newComment_text" class="new-comment__textarea"
+                                cols="30" rows="10" placeholder="Комментарий (min: 10, max: 300)" id="text" 
+                                required maxlength="500" tabindex="3"></textarea>
+                            </div>
+                            <div class="new-comment__group new-comment__date">
+                                <label for="date" class="new-comment__label">Дата</label>
+                                <input type="date" class="new-comment__input" id="date" name="newComment_date" tabindex="3">
+                            </div>
+                            <div class="new-comment__group new-comment__submit">
+                                <button class="new-comment__submit-button" tabindex="4">Добавить комментарий</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="comments">
+                        <h1 class="comments__title">Список всех комментариев</h1>
+                        <ul class="comments__list">
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="footer">
+            <div class="container">
+                <div class="footer__row">
+                    <span>Created by <a href="https://github.com/damirios">damirios</a>, 2022</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
