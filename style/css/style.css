@@ -1,0 +1,110 @@
+@import url("./resetStyle.css");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital@0;1&display=swap");
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  max-width: 1225px;
+  padding: 0 15px;
+  margin: 0 auto;
+  height: 100%;
+}
+
+.header {
+  flex: 0 0 70px;
+  background-color: #999;
+}
+
+.footer {
+  flex: 0 0 70px;
+  background-color: #999;
+}
+
+.content {
+  flex: 1 0 auto;
+}
+
+.content__row {
+  display: flex;
+  height: 100%;
+}
+
+.new-comment {
+  flex: 0 0 45%;
+  height: 100%;
+  border-right: 2px solid #777;
+}
+.new-comment__form {
+  padding: 10px 0;
+}
+.new-comment__group {
+  margin-bottom: 15px;
+  position: relative;
+}
+.new-comment__label {
+  display: block;
+  margin-bottom: 5px;
+  font-family: "Roboto", sans-serif;
+}
+.new-comment__input {
+  padding: 6px;
+  font-size: 16px;
+  border: 2px solid #777;
+  border-radius: 5px;
+  min-width: 300px;
+}
+.new-comment__input:focus {
+  outline: none;
+  box-shadow: 0 0 3px blue;
+}
+.new-comment__textarea {
+  padding: 6px;
+  font-size: 16px;
+  border: 2px solid #777;
+  border-radius: 5px;
+  min-width: 300px;
+  max-width: 400px;
+  resize: horizontal;
+}
+.new-comment__textarea:focus {
+  outline: none;
+  box-shadow: 0 0 3px blue;
+}
+.new-comment__submit-button {
+  padding: 6px;
+  font-size: 16px;
+  border: 2px solid #777;
+  border-radius: 5px;
+  min-width: 300px;
+  background-color: transparent;
+  cursor: pointer;
+  box-shadow: 1px 3px 5px #333;
+  transition: background-color 0.4s ease 0s;
+}
+.new-comment__submit-button:hover {
+  background-color: #ddd;
+}
+.new-comment__submit-button:active {
+  position: relative;
+  top: 2px;
+  box-shadow: 0 1px 3px #333;
+}
+.new-comment__submit-button:focus {
+  outline: 1px solid rgb(52, 52, 231);
+}
+
+.error {
+  position: absolute;
+  bottom: 5px;
+  left: 305px;
+  font-size: 12px;
+  max-width: 200px;
+  color: red;
+}
+
+.error-input {
+  border: 2px solid red;
+}
