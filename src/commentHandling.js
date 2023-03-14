@@ -3,6 +3,7 @@ import { getValidationResult } from "./getValidationResult";
 import { showError } from "./errorHandling";
 import { isTodayOrYesterday } from "./utilities/isTodayOrYesterday";
 import { months } from "./utilities/months";
+import { changeLikeStatusLocalStorage } from "./localStorageFuncs";
 
 export function newCommentSubmitHandler(e) {
     const newCommentForm = e.target.closest('form.new-comment__form');
@@ -58,7 +59,7 @@ export function createNewComment(form) {
     const time = `${hours}:${minutes}:${seconds}`;
 
     const newComment = {
-        name, text, date, time
+        name, text, date, time, isLiked: false
     };
 
     addToLocalStorage(newComment);
@@ -103,11 +104,37 @@ export function showAllComments() {
                 updateLocalStorage('comments', comments);
                 location.reload();
             });
-    
+
+            const likeButtonBox = document.createElement('div');
+            likeButtonBox.classList.add('comment__like');
+            const likeButton = document.createElement('img');
+            if (comment.isLiked) {
+                likeButton.src = 'images/icons/like_active.svg';
+            } else {
+                likeButton.src = 'images/icons/like.svg';
+            }
+            likeButton.classList.add('comment__like-button');
+            likeButtonBox.append(likeButton);
+
+            let isLiked = comment.isLiked;
+            likeButton.addEventListener('click', (e) => {
+                if (isLiked) {
+                    likeButton.src = 'images/icons/like.svg';
+                    isLiked = false;
+                    changeLikeStatusLocalStorage('comments', i, false);
+                } else {
+                    likeButton.src = 'images/icons/like_active.svg';
+                    isLiked = true;
+                    changeLikeStatusLocalStorage('comments', i, true);
+                }
+            });
+            
+            
             listItem.append(dateTime);
             listItem.append(name);
             listItem.append(text);
             listItem.append(removeButton);
+            listItem.append(likeButtonBox);
             commentsList.append(listItem);
         }
     }

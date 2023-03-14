@@ -20,3 +20,9 @@ export function getFromLocalStorage(itemName) {
 export function updateLocalStorage(itemName, content) {
     localStorage.setItem(itemName, JSON.stringify(content));
 }
+
+export function changeLikeStatusLocalStorage(itemName, index, status) {
+    const comments = JSON.parse(localStorage.getItem(itemName));
+    comments[index].isLiked = status;
+    localStorage.setItem(itemName, JSON.stringify(comments));
+}
